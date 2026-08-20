@@ -1,0 +1,48 @@
+name: Publish latest report to Telegram
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/reports.json'
+  workflow_dispatch:
+
+jobs:
+  telegram:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Telegram message
+        id: message
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+
+          data = json.loads(Path('data/reports.json').read_text())
+          latest = next((r for r in data['reports'] if r['date'] == data['latest']), data['reports'][0])
+          metrics = '\n'.join(f"• {m['label']}: {m['value']} ({m['meta']})" for m in latest['metrics'])
+          scenarios = '\n'.join(f"• {s['asset']}: {s['base']}" for s in latest['scenarios'][:3])
+          text = (
+              f"📊 Edwin Market Brief — {latest['date']}\n\n"
+              f"{latest['summary']}\n\n"
+              f"Key markets\n{metrics}\n\n"
+              f"Base ranges\n{scenarios}\n\n"
+              "Full report: ${{ vars.REPORT_SITE_URL }}"
+          )
+          Path('telegram-message.txt').write_text(text)
+          PY
+
+      - name: Send Telegram message
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          test -n "$TELEGRAM_BOT_TOKEN"
+          test -n "$TELEGRAM_CHAT_ID"
+          curl --fail --silent --show-error \
+            --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
+            --data-urlencode "text@telegram-message.txt" \
+            "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage"
