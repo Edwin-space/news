@@ -1,4 +1,4 @@
-name: Deploy report site to GitHub Pages
+name: 시장 브리프 사이트 GitHub Pages 배포
 
 on:
   push:
@@ -18,13 +18,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 저장소 체크아웃
         uses: actions/checkout@v6
 
-      - name: Configure GitHub Pages
+      - name: GitHub Pages 설정
         uses: actions/configure-pages@v5
 
-      - name: Upload static site
+      - name: 정적 사이트 업로드
         uses: actions/upload-pages-artifact@v4
         with:
           path: .
@@ -36,6 +36,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: GitHub Pages 배포
         id: deployment
         uses: actions/deploy-pages@v4
