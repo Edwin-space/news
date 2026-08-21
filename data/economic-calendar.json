@@ -5,6 +5,26 @@
     {
       "country": "US",
       "countryLabel": "미국",
+      "releaseAt": "2026-08-21T22:45:00+09:00",
+      "dateLabel": "8월 21일(금)",
+      "timeLabel": "22:45 KST",
+      "indicator": "S&P Global 잠정 PMI",
+      "period": "2026년 8월",
+      "impact": "high",
+      "impactLabel": "중요도 상",
+      "previous": "제조업 53.9 · 서비스업 54.6",
+      "forecast": "제조업 53.7 · 서비스업 53.9",
+      "actual": null,
+      "status": "scheduled",
+      "detail": "경기 확장 속도와 기업의 가격·고용 압력을 공식 지표보다 빠르게 확인하는 잠정 조사입니다.",
+      "watchPoints": ["제조업 신규주문·생산", "서비스업 신규사업", "투입가격·판매가격", "고용·공급업체 배송시간"],
+      "marketImpact": "예상 상회와 가격 압력 동반 시 장기금리 상승과 Nasdaq 압박 가능성이 커집니다. 완만한 둔화와 가격 안정은 성장주에 우호적입니다.",
+      "source": "S&P Global",
+      "sourceUrl": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates?language=en"
+    },
+    {
+      "country": "US",
+      "countryLabel": "미국",
       "releaseAt": "2026-08-21T23:00:00+09:00",
       "dateLabel": "8월 21일(금)",
       "timeLabel": "23:00 KST",
@@ -17,6 +37,8 @@
       "actual": null,
       "status": "scheduled",
       "detail": "미국 주별 고용 여건과 실업률 변화를 확인하는 지역 노동시장 지표입니다.",
+      "watchPoints": ["취업자 수 변화", "주별 실업률", "지역별 고용 격차"],
+      "marketImpact": "전국 고용보고서보다 시장 영향은 작지만 노동시장 둔화가 지역별로 확산되는지 확인하는 보조 지표입니다.",
       "source": "미국 노동통계국(BLS)",
       "sourceUrl": "https://www.bls.gov/schedule/2026/08_sched_list.htm"
     },
@@ -35,6 +57,8 @@
       "actual": null,
       "status": "scheduled",
       "detail": "소비자심리지수와 물가·금리·주택가격 전망을 통해 내수 심리를 확인합니다.",
+      "watchPoints": ["소비자심리지수", "기대인플레이션", "금리·주택가격 전망"],
+      "marketImpact": "심리 개선과 기대물가 상승이 함께 나타나면 내수에는 긍정적이지만 금리 인하 기대에는 부담이 될 수 있습니다.",
       "source": "한국은행",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?date=2026-08&menuNo=200775"
     },
@@ -53,6 +77,8 @@
       "actual": null,
       "status": "scheduled",
       "detail": "예금은행의 신규 취급액 기준 수신·대출금리와 가계·기업의 조달 여건을 확인합니다.",
+      "watchPoints": ["가계대출금리", "기업대출금리", "예대금리차"],
+      "marketImpact": "대출금리 하락은 내수와 부동산 금융여건에 우호적이며, 하락 지연은 통화정책 완화의 전달력이 약하다는 신호가 될 수 있습니다.",
       "source": "한국은행",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?date=2026-08&menuNo=200775"
     },
@@ -71,6 +97,8 @@
       "actual": null,
       "status": "scheduled",
       "detail": "성장률 수정 폭과 개인소비·기업투자·물가 세부항목을 함께 확인해야 합니다.",
+      "watchPoints": ["개인소비 수정", "기업 설비투자", "GDP 물가지수", "재고·순수출 기여도"],
+      "marketImpact": "성장과 물가가 함께 상향 수정되면 장기금리와 달러에 상방 압력, 성장주 밸류에이션에는 부담이 될 수 있습니다.",
       "source": "미국 경제분석국(BEA)",
       "sourceUrl": "https://www.bea.gov/news/schedule/full"
     },
@@ -89,6 +117,8 @@
       "actual": null,
       "status": "scheduled",
       "detail": "Fed가 중시하는 근원 PCE 물가와 소비 모멘텀을 함께 판단하는 핵심 지표입니다.",
+      "watchPoints": ["근원 PCE 전월비·전년비", "실질 개인소비", "개인소득", "저축률"],
+      "marketImpact": "근원물가 둔화와 소비의 완만한 증가는 위험자산에 가장 우호적이며, 물가 재가속은 금리 인하 기대를 낮출 수 있습니다.",
       "source": "미국 경제분석국(BEA)",
       "sourceUrl": "https://www.bea.gov/news/schedule/full"
     },
@@ -107,6 +137,8 @@
       "actual": null,
       "status": "scheduled",
       "detail": "가구의 소득·소비지출과 처분가능소득을 통해 내수와 가계 구매력을 확인합니다.",
+      "watchPoints": ["명목·실질소득", "소비지출", "처분가능소득", "소득분위별 격차"],
+      "marketImpact": "실질소득과 소비가 동반 개선되면 내수 업종에 긍정적이며, 소득 대비 지출 부진은 소비 회복의 지속성을 낮춥니다.",
       "source": "국가데이터처",
       "sourceUrl": "https://www.kostat.go.kr/newsPln.es?mid=a10305000000&oa_mm=08"
     },
@@ -125,6 +157,8 @@
       "actual": null,
       "status": "scheduled",
       "detail": "광공업생산·소매판매·설비투자와 동행·선행지수 순환변동치를 종합 확인합니다.",
+      "watchPoints": ["광공업생산", "소매판매", "설비투자", "동행·선행지수"],
+      "marketImpact": "생산·소비·투자가 함께 개선되면 경기민감 업종과 원화에 우호적이며, 엇갈리면 회복의 폭을 보수적으로 판단해야 합니다.",
       "source": "국가데이터처",
       "sourceUrl": "https://www.kostat.go.kr/newsPln.es?mid=a10305000000&oa_mm=08"
     },
@@ -143,6 +177,8 @@
       "actual": null,
       "status": "scheduled",
       "detail": "전월비·전년비 소비자물가와 근원물가, 생활물가의 방향을 확인합니다.",
+      "watchPoints": ["전체 CPI 전월비·전년비", "근원물가", "생활물가", "서비스·주거비"],
+      "marketImpact": "물가 둔화는 한국은행 완화 기대와 채권에 우호적이며, 서비스 물가 고착은 금리 인하 속도를 제한할 수 있습니다.",
       "source": "국가데이터처",
       "sourceUrl": "https://www.kostat.go.kr/newsPln.es?mid=a10305000000&oa_mm=09"
     },
@@ -161,6 +197,8 @@
       "actual": null,
       "status": "scheduled",
       "detail": "비농업고용, 실업률, 시간당임금과 이전치 수정 여부를 함께 확인합니다.",
+      "watchPoints": ["비농업고용", "실업률", "시간당임금", "이전치 수정·노동참가율"],
+      "marketImpact": "고용과 임금이 동시에 강하면 금리와 달러 상승, 성장주 압박 경로가 우세합니다. 완만한 둔화는 연착륙 기대에 우호적입니다.",
       "source": "미국 노동통계국(BLS)",
       "sourceUrl": "https://www.bls.gov/cps/publications/release-calendar.htm"
     },
@@ -179,6 +217,8 @@
       "actual": null,
       "status": "scheduled",
       "detail": "헤드라인·근원 CPI의 전월비와 전년비, 주거비·서비스 물가를 함께 확인합니다.",
+      "watchPoints": ["전체·근원 CPI 전월비", "주거비", "주거비 제외 서비스", "상품 물가"],
+      "marketImpact": "근원 서비스 물가 재가속은 실질금리와 달러 상승을 통해 Nasdaq과 금에 부담이 될 수 있습니다. 광범위한 둔화는 반대 경로입니다.",
       "source": "미국 노동통계국(BLS)",
       "sourceUrl": "https://www.bls.gov/cpi/"
     }
