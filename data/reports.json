@@ -1,0 +1,37 @@
+{
+  "latest": "2026-08-21",
+  "reports": [
+    {
+      "date": "2026-08-21",
+      "label": "21 Aug 2026 · 08:02 KST",
+      "title": "Strong growth, sticky inflation premium, fragile tech multiples.",
+      "summary": "미국 경기 지표는 견조하지만 장기금리 상승의 핵심은 실질금리 급등보다 인플레이션 보상과 term premium 확대에 가깝습니다. Nasdaq에는 부담이지만 Gold에는 상대적으로 덜 불리한 조합입니다.",
+      "note": "Today’s key read: 10Y real yield stability versus higher nominal yields. Watch oil and DXY for confirmation before treating the move as a pure tightening trade.",
+      "metrics": [
+        {"label":"US 10Y","value":"4.69%","meta":"2s10s +50bp","tone":"down"},
+        {"label":"DXY","value":"98.84","meta":"Range 98.56–98.93","tone":"flat"},
+        {"label":"Gold Dec","value":"$4,579","meta":"+0.17%","tone":"up"},
+        {"label":"WTI Oct","value":"$86.31","meta":"-0.60%","tone":"down"},
+        {"label":"Nasdaq Fut.","value":"29,298","meta":"-0.01%","tone":"flat"}
+      ],
+      "macro": [
+        "신규 실업수당과 Philadelphia Fed 제조업지수가 모두 예상보다 강했습니다. 기본 경로는 <strong>고용 견조 → Fed 완화 필요성 약화 → 장기금리 상승 → 성장주 멀티플 압박</strong>입니다.",
+        "다만 10Y 실질금리가 약 2.35%에서 거의 움직이지 않았다는 점이 중요합니다. 명목금리 상승의 상당 부분이 기대인플레이션과 장기채 term premium에서 나온다면 Gold에는 생각보다 덜 부정적입니다.",
+        "오늘 밤 Flash PMI는 headline뿐 아니라 가격·고용 세부항목을 함께 봐야 합니다. 완만한 둔화와 가격압력 완화 조합이 Nasdaq에 가장 우호적입니다."
+      ],
+      "priority": ["10Y real yield","DXY","Brent / WTI","Nasdaq-100 breadth","M7 + software participation"],
+      "scenarios": [
+        {"asset":"Nasdaq-100","base":"29,200–29,450","bull":"29,450↑ + 10Y <4.65%","bear":"29,200↓ + 10Y >4.75% or Brent >95"},
+        {"asset":"Gold Dec","base":"$4,550–4,600","bull":"$4,600↑ + real yield stable/down","bear":"$4,550↓; stronger warning below $4,500"},
+        {"asset":"WTI Oct","base":"$85.8–87.5","bull":"$87.7↑ → $89 retest","bear":"$85.5↓"},
+        {"asset":"Brent Oct","base":"$92.5–94.5","bull":"$94.7–95↑","bear":"$92↓"},
+        {"asset":"US 10Y","base":"4.65–4.75%","bull":"<4.65% supports risk assets","bear":">4.75% extends NQ pressure"}
+      ],
+      "equity": [
+        "전일 S&P 500, Nasdaq, Dow, Russell 2000이 모두 하락했고 M7도 전 종목 약세였습니다. 특정 기업 이슈보다 <strong>장기금리 상승에 따른 duration 자산 전반의 valuation compression</strong> 성격이 더 강했습니다.",
+        "Nvidia가 상대적으로 선방했음에도 Nasdaq이 더 크게 밀렸다는 점은 breadth가 나빴다는 의미입니다. 오늘 반등의 질은 Nvidia 단독 반등보다 <strong>10Y 안정 + software breadth 회복 + M7 동반 상승</strong> 여부로 판단하는 편이 낫습니다.",
+        "Walmart의 약한 EPS 가이던스는 직접적으로 소비 섹터에 부담이고, 간접적으로는 마진과 소비자 가격민감도 악화를 시사해 consumer internet·advertising·e-commerce valuation에도 경계 요인입니다."
+      ]
+    }
+  ]
+}
