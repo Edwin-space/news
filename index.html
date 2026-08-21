@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css?v=20260821-calendar" />
 </head>
 <body>
   <div class="app-shell">
@@ -20,10 +20,11 @@
       </a>
       <nav class="nav">
         <a href="#latest">최신 브리프</a>
+        <a href="#economic-calendar">경제지표</a>
         <a href="#scenarios">시나리오</a>
         <a href="#archive">지난 브리프</a>
       </nav>
-      <div class="live-pill"><span></span> 매일 KST 기준</div>
+      <div class="live-pill"><span></span> 비실시간 브리프</div>
     </header>
 
     <main id="top">
@@ -36,6 +37,14 @@
           </div>
           <div class="hero-note" id="hero-note"></div>
         </div>
+      </section>
+
+      <section class="freshness-strip" aria-label="데이터 기준 안내">
+        <div>
+          <span class="freshness-label">데이터 확인 시각</span>
+          <strong id="data-checked-at">확인 중…</strong>
+        </div>
+        <p id="data-freshness-note">실시간 시세가 아닌 브리프 작성 시점의 참고값입니다.</p>
       </section>
 
       <section class="metrics-grid" id="metrics" aria-label="주요 시장 지표"></section>
@@ -58,9 +67,33 @@
         </aside>
       </section>
 
+      <section class="panel economic-calendar" id="economic-calendar">
+        <div class="calendar-heading-row">
+          <div class="section-heading">
+            <span>02</span>
+            <div><p>한국·미국 주요 일정</p><h2>경제지표 발표 일정</h2></div>
+          </div>
+          <div class="calendar-filters" role="group" aria-label="국가별 경제지표 필터">
+            <button class="calendar-filter is-active" type="button" data-country="all">전체</button>
+            <button class="calendar-filter" type="button" data-country="KR">한국</button>
+            <button class="calendar-filter" type="button" data-country="US">미국</button>
+          </div>
+        </div>
+        <div class="calendar-notice">
+          <p><strong>일정 데이터 확인:</strong> <span id="calendar-checked-at">확인 중…</span></p>
+          <p>공식 발표기관 일정 기준이며 변경될 수 있습니다. 예측치는 컨센서스 공급원 연결 전까지 미입력으로 표시하고, 실제치는 발표된 뒤에만 갱신합니다.</p>
+        </div>
+        <div id="economic-calendar-list" class="economic-calendar-list" aria-live="polite"></div>
+        <div class="automation-note">
+          <strong>현재 운영 방식</strong>
+          <span>일정·예측·실제치 수동 검수</span>
+          <span>자동 업데이트 준비 중</span>
+        </div>
+      </section>
+
       <section class="panel" id="scenarios">
         <div class="section-heading">
-          <span>02</span>
+          <span>03</span>
           <div><p>조건별 대응 전략</p><h2>오늘의 시장 시나리오</h2></div>
         </div>
         <div class="scenario-grid" id="scenario-grid"></div>
@@ -68,7 +101,7 @@
 
       <section class="panel">
         <div class="section-heading">
-          <span>03</span>
+          <span>04</span>
           <div><p>주식시장</p><h2>종목·업종 영향 분석</h2></div>
         </div>
         <div id="equity-copy" class="prose columns"></div>
@@ -76,7 +109,7 @@
 
       <section class="archive-section" id="archive">
         <div class="section-heading">
-          <span>04</span>
+          <span>05</span>
           <div><p>지난 기록</p><h2>브리프 아카이브</h2></div>
         </div>
         <div id="archive-list" class="archive-list"></div>
@@ -88,6 +121,6 @@
       <p>정보 제공 목적이며 투자 권유가 아닙니다.</p>
     </footer>
   </div>
-  <script src="./app.js?v=20260821-ko" defer></script>
+  <script src="./app.js?v=20260821-calendar" defer></script>
 </body>
 </html>
