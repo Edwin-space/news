@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260821-details" />
+  <link rel="stylesheet" href="./styles.css?v=20260821-publications" />
 </head>
 <body>
   <div class="app-shell">
@@ -19,9 +19,9 @@
         <span><strong>Edwin</strong><small>시장 예측 브리프</small></span>
       </a>
       <nav class="nav">
-        <a href="#latest">최신 브리프</a>
+        <a href="#publication-stream">발행 흐름</a>
+        <a href="#latest">시장 전략</a>
         <a href="#economic-calendar">경제지표</a>
-        <a href="#scenarios">시나리오</a>
         <a href="#archive">지난 브리프</a>
       </nav>
       <div class="live-pill"><span></span> 비실시간 브리프</div>
@@ -48,6 +48,23 @@
           <p id="data-freshness-note">실시간 시세가 아닌 브리프 작성 시점의 참고값입니다.</p>
           <p id="data-source-window"></p>
         </div>
+      </section>
+
+      <section class="panel publication-system" id="publication-stream">
+        <div class="calendar-heading-row">
+          <div class="section-heading">
+            <span>운영</span>
+            <div><p>시간대별 발행 체계</p><h2>오늘의 브리프 흐름</h2></div>
+          </div>
+          <p class="publication-checked">운영 데이터 확인 · <strong id="publication-checked-at">확인 중…</strong></p>
+        </div>
+        <p id="publication-notice" class="publication-notice"></p>
+        <div id="publication-schedule" class="publication-schedule"></div>
+        <div class="publication-timeline-heading">
+          <div><span>발행 기록</span><h3>오늘 업데이트</h3></div>
+          <p>새로운 내용이 위에 표시됩니다.</p>
+        </div>
+        <div id="publication-timeline" class="publication-timeline" aria-live="polite"></div>
       </section>
 
       <section class="metrics-grid" id="metrics" aria-label="주요 시장 지표"></section>
@@ -142,6 +159,6 @@
       <p>정보 제공 목적이며 투자 권유가 아닙니다.</p>
     </footer>
   </div>
-  <script src="./app.js?v=20260821-details" defer></script>
+  <script src="./app.js?v=20260821-publications" defer></script>
 </body>
 </html>

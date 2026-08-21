@@ -9,10 +9,20 @@
 - `app.js` — 브리프 렌더링과 아카이브 라우팅
 - `data/reports.json` — 브리프 원본 데이터
 - `data/economic-calendar.json` — 한국·미국 경제지표 발표 일정과 이전치·예상치·실제치
+- `data/publications.json` — 시간대별 발행 계획과 종합판·전략판·업데이트·속보 기록
 - `.github/workflows/pages.yml` — GitHub Pages 배포
 - `.github/workflows/telegram.yml` — 브리프 갱신 후 Telegram 발송
 
 ## 브리프 발행
+
+발행 체계는 한국시간 기준으로 운영합니다.
+
+- **07:00 미국장 마감 종합** — 미국 정규장 개장부터 장 종료 후 06:45까지의 경제·시장·실적·기술·지정학 종합
+- **08:30 오늘의 시장 전략** — 전일 확정값과 08:15 전후 확인값을 기반으로 자산별 관찰 범위와 기본·상승·하락 조건 제시
+- **09:00~21:00 시장 변화 업데이트** — 09·11·13·15·17·19·21시에 직전 발행 이후 달라진 내용만 기록
+- **경제지표 속보** — 중요 지표 공식 발표 후 이전·예상·실제·수정치와 세부항목, 시장 전달 경로 분석
+
+미국 정규장 시간은 미국 동부시간 09:30~16:00을 기준으로 하며 서머타임과 표준시에 따라 한국시간 범위를 다르게 해석합니다. 07시 종합판의 고정 대상 범위는 특정 한국시간이 아니라 미국 정규장과 장 종료 후 확인 가능한 시간외 반응입니다.
 
 `data/reports.json`에 브리프 객체를 추가하고 `latest`를 해당 날짜로 변경합니다. 최신 화면과 아카이브는 자동으로 갱신됩니다.
 
@@ -61,6 +71,6 @@ BotFather에서 Telegram 봇을 만든 뒤 아래 값을 GitHub Actions 저장�
 - `TELEGRAM_BOT_TOKEN`
 - `TELEGRAM_CHAT_ID`
 
-Telegram 워크플로는 `main`의 `data/reports.json`이 변경될 때 실행되며 GitHub Actions에서 수동으로 실행할 수도 있습니다.
+Telegram 워크플로는 `main`의 `data/reports.json` 또는 `data/publications.json`이 변경될 때 실행됩니다. 가장 최근 발행물의 제목·요약·핵심 변화와 웹 전문 링크를 전송하며 GitHub Actions에서 수동으로 실행할 수도 있습니다.
 
 봇 토큰이나 채팅 ID를 저장소에 직접 커밋하지 마세요.
