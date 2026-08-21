@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260821-calendar" />
+  <link rel="stylesheet" href="./styles.css?v=20260821-details" />
 </head>
 <body>
   <div class="app-shell">
@@ -44,7 +44,10 @@
           <span class="freshness-label">데이터 확인 시각</span>
           <strong id="data-checked-at">확인 중…</strong>
         </div>
-        <p id="data-freshness-note">실시간 시세가 아닌 브리프 작성 시점의 참고값입니다.</p>
+        <div class="freshness-copy">
+          <p id="data-freshness-note">실시간 시세가 아닌 브리프 작성 시점의 참고값입니다.</p>
+          <p id="data-source-window"></p>
+        </div>
       </section>
 
       <section class="metrics-grid" id="metrics" aria-label="주요 시장 지표"></section>
@@ -56,6 +59,7 @@
             <div><p>거시경제 신호</p><h2>금리·달러·거시경제</h2></div>
           </div>
           <div id="macro-copy" class="prose"></div>
+          <div id="rate-grid" class="rate-grid"></div>
         </article>
 
         <aside class="panel watch-panel">
@@ -65,6 +69,14 @@
           </div>
           <ol id="priority-list" class="priority-list"></ol>
         </aside>
+      </section>
+
+      <section class="panel detailed-analysis" id="detailed-analysis">
+        <div class="section-heading">
+          <span>심층</span>
+          <div><p>수치·근거·조건</p><h2>자산별 상세 분석</h2></div>
+        </div>
+        <div id="detail-section-list" class="detail-section-list"></div>
       </section>
 
       <section class="panel economic-calendar" id="economic-calendar">
@@ -91,9 +103,17 @@
         </div>
       </section>
 
-      <section class="panel" id="scenarios">
+      <section class="panel event-focus" id="event-focus">
         <div class="section-heading">
           <span>03</span>
+          <div><p>오늘의 핵심 발표</p><h2>경제지표 심층 분석</h2></div>
+        </div>
+        <div id="event-focus-content"></div>
+      </section>
+
+      <section class="panel" id="scenarios">
+        <div class="section-heading">
+          <span>04</span>
           <div><p>조건별 대응 전략</p><h2>오늘의 시장 시나리오</h2></div>
         </div>
         <div class="scenario-grid" id="scenario-grid"></div>
@@ -101,15 +121,16 @@
 
       <section class="panel">
         <div class="section-heading">
-          <span>04</span>
+          <span>05</span>
           <div><p>주식시장</p><h2>종목·업종 영향 분석</h2></div>
         </div>
+        <div id="market-close-grid" class="market-close-grid"></div>
         <div id="equity-copy" class="prose columns"></div>
       </section>
 
       <section class="archive-section" id="archive">
         <div class="section-heading">
-          <span>05</span>
+          <span>06</span>
           <div><p>지난 기록</p><h2>브리프 아카이브</h2></div>
         </div>
         <div id="archive-list" class="archive-list"></div>
@@ -121,6 +142,6 @@
       <p>정보 제공 목적이며 투자 권유가 아닙니다.</p>
     </footer>
   </div>
-  <script src="./app.js?v=20260821-calendar" defer></script>
+  <script src="./app.js?v=20260821-details" defer></script>
 </body>
 </html>
