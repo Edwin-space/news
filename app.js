@@ -2,6 +2,57 @@ const $ = (selector) => document.querySelector(selector);
 
 let economicEvents = [];
 
+function renderPublicationSchedule(item) {
+  return `<article class="publication-schedule-card ${item.type}">
+    <div class="publication-time">${item.time}</div>
+    <p>${item.frequency}</p>
+    <h3>${item.name}</h3>
+    <span>${item.purpose}</span>
+    <small>대상 범위 · ${item.coverage}</small>
+    <ul>${item.contents.map(content => `<li>${content}</li>`).join('')}</ul>
+  </article>`;
+}
+
+function renderPublicationUpdate(update) {
+  const sectionDetails = update.sections?.length
+    ? `<details class="publication-details">
+        <summary>종합 내용 펼쳐보기</summary>
+        <div>${update.sections.map(section => `<section><h4>${section.title}</h4><p>${section.body}</p></section>`).join('')}</div>
+      </details>`
+    : '';
+  const reportLink = update.reportDate
+    ? `<a class="publication-link" href="?date=${update.reportDate}#latest">시장 전략 전문 보기 →</a>`
+    : '';
+
+  return `<article class="publication-update ${update.type}">
+    <div class="publication-update-rail">
+      <span></span>
+      <time datetime="${update.publishedAt}">${update.publishedLabel}</time>
+    </div>
+    <div class="publication-update-card">
+      <div class="publication-update-topline">
+        <span class="publication-kind">${update.typeLabel}</span>
+        <span>데이터 확인 · ${update.dataCheckedAt}</span>
+      </div>
+      <h3>${update.title}</h3>
+      <p>${update.summary}</p>
+      <ul class="publication-changes">${update.changes.map(change => `<li>${change}</li>`).join('')}</ul>
+      ${sectionDetails}
+      ${reportLink}
+    </div>
+  </article>`;
+}
+
+function renderPublications(data) {
+  $('#publication-checked-at').textContent = data.checkedAt;
+  $('#publication-notice').textContent = data.notice;
+  $('#publication-schedule').innerHTML = data.schedule.map(renderPublicationSchedule).join('');
+  $('#publication-timeline').innerHTML = [...data.updates]
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+    .map(renderPublicationUpdate)
+    .join('');
+}
+
 function renderMetric(metric) {
   return `<article class="metric">
     <div class="metric-label">${metric.label}</div>
@@ -175,9 +226,10 @@ function renderReport(report, reports) {
 
 async function init() {
   try {
-    const [response, calendarResponse] = await Promise.all([
+    const [response, calendarResponse, publicationResponse] = await Promise.all([
       fetch('./data/reports.json', { cache: 'no-store' }),
-      fetch('./data/economic-calendar.json', { cache: 'no-store' }).catch(() => null)
+      fetch('./data/economic-calendar.json', { cache: 'no-store' }).catch(() => null),
+      fetch('./data/publications.json', { cache: 'no-store' }).catch(() => null)
     ]);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
@@ -188,6 +240,12 @@ async function init() {
 
     if (!report) throw new Error('등록된 브리프가 없습니다.');
     renderReport(report, data.reports);
+
+    if (publicationResponse?.ok) {
+      renderPublications(await publicationResponse.json());
+    } else {
+      $('#publication-timeline').innerHTML = '<p class="calendar-empty">발행 흐름을 불러오지 못했습니다.</p>';
+    }
 
     if (calendarResponse?.ok) {
       const calendarData = await calendarResponse.json();

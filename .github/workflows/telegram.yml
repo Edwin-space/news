@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'data/reports.json'
+      - 'data/publications.json'
   workflow_dispatch:
 
 jobs:
@@ -19,19 +20,42 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          import os
           from pathlib import Path
 
-          data = json.loads(Path('data/reports.json').read_text())
-          latest = next((r for r in data['reports'] if r['date'] == data['latest']), data['reports'][0])
-          metrics = '\n'.join(f"• {m['label']}: {m['value']} ({m['meta']})" for m in latest['metrics'])
-          scenarios = '\n'.join(f"• {s['asset']}: {s['base']}" for s in latest['scenarios'][:3])
-          text = (
-              f"📊 Edwin 시장 예측 브리프 — {latest['date']}\n\n"
-              f"{latest['summary']}\n\n"
-              f"주요 시장 지표\n{metrics}\n\n"
-              f"기본 예상 범위\n{scenarios}\n\n"
-              "전체 브리프: ${{ vars.REPORT_SITE_URL }}"
-          )
+          event = json.loads(Path(os.environ['GITHUB_EVENT_PATH']).read_text())
+          changed_files = {
+              path
+              for commit in event.get('commits', [])
+              for key in ('added', 'modified')
+              for path in commit.get(key, [])
+          }
+
+          if 'data/reports.json' in changed_files and 'data/publications.json' not in changed_files:
+              reports = json.loads(Path('data/reports.json').read_text())
+              latest = next((item for item in reports['reports'] if item['date'] == reports['latest']), reports['reports'][0])
+              metrics = '\n'.join(f"• {item['label']}: {item['value']} ({item['meta']})" for item in latest['metrics'])
+              scenarios = '\n'.join(f"• {item['asset']}: {item['base']}" for item in latest['scenarios'][:3])
+              text = (
+                  f"📊 Edwin 시장 예측 브리프 — {latest['date']}\n\n"
+                  f"{latest['summary']}\n\n"
+                  f"주요 시장 지표\n{metrics}\n\n"
+                  f"기본 예상 범위\n{scenarios}\n\n"
+                  "전체 브리프: ${{ vars.REPORT_SITE_URL }}"
+              )
+          else:
+              publications = json.loads(Path('data/publications.json').read_text())
+              latest = max(publications['updates'], key=lambda item: item['publishedAt'])
+              changes = '\n'.join(f"• {item}" for item in latest['changes'][:5])
+              text = (
+                  f"📊 Edwin {latest['typeLabel']}\n"
+                  f"{latest['publishedLabel']}\n\n"
+                  f"{latest['title']}\n\n"
+                  f"{latest['summary']}\n\n"
+                  f"핵심 변화\n{changes}\n\n"
+                  f"데이터 확인: {latest['dataCheckedAt']}\n"
+                  "전체 발행 흐름: ${{ vars.REPORT_SITE_URL }}#publication-stream"
+              )
           Path('telegram-message.txt').write_text(text)
           PY
 
