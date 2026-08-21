@@ -12,9 +12,9 @@ function renderScenario(item) {
   return `<article class="scenario-card">
     <h3>${item.asset}</h3>
     <dl>
-      <dt>Base</dt><dd>${item.base}</dd>
-      <dt>Bull</dt><dd class="up">${item.bull}</dd>
-      <dt>Bear</dt><dd class="down">${item.bear}</dd>
+      <dt>기본</dt><dd>${item.base}</dd>
+      <dt>상승</dt><dd class="up">${item.bull}</dd>
+      <dt>하락</dt><dd class="down">${item.bear}</dd>
     </dl>
   </article>`;
 }
@@ -23,12 +23,12 @@ function renderArchive(report) {
   return `<a class="archive-item" href="?date=${report.date}#latest">
     <time>${report.date}</time>
     <strong>${report.title}</strong>
-    <span>Open report →</span>
+    <span>브리프 보기 →</span>
   </a>`;
 }
 
 function renderReport(report, reports) {
-  document.title = `${report.date} · Edwin Market Brief`;
+  document.title = `${report.date} · Edwin 시장 예측 브리프`;
   $('#report-date').textContent = report.label;
   $('#report-title').textContent = report.title;
   $('#report-summary').textContent = report.summary;
@@ -51,12 +51,12 @@ async function init() {
       || data.reports.find(item => item.date === data.latest)
       || data.reports[0];
 
-    if (!report) throw new Error('No reports found');
+    if (!report) throw new Error('등록된 브리프가 없습니다.');
     renderReport(report, data.reports);
   } catch (error) {
-    $('#report-date').textContent = 'Report unavailable';
-    $('#report-title').textContent = 'Unable to load market brief.';
-    $('#report-summary').textContent = 'Check data/reports.json and deployment configuration.';
+    $('#report-date').textContent = '브리프를 표시할 수 없습니다.';
+    $('#report-title').textContent = '시장 예측 브리프를 불러오지 못했습니다.';
+    $('#report-summary').textContent = '리포트 데이터와 배포 설정을 확인해 주세요.';
     console.error(error);
   }
 }

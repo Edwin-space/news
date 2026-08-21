@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b0d10" />
-  <title>Edwin Market Brief</title>
-  <meta name="description" content="Daily macro, rates, commodities and equity market brief." />
+  <title>Edwin 시장 예측 브리프</title>
+  <meta name="description" content="거시경제, 금리, 원자재, 주식시장을 다루는 일일 시장 예측 브리프." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,45 +14,45 @@
 <body>
   <div class="app-shell">
     <header class="topbar">
-      <a class="brand" href="#top" aria-label="Edwin Market Brief home">
+      <a class="brand" href="#top" aria-label="Edwin 시장 예측 브리프 홈">
         <span class="brand-mark">E</span>
-        <span><strong>Edwin</strong><small>Market Brief</small></span>
+        <span><strong>Edwin</strong><small>시장 예측 브리프</small></span>
       </a>
       <nav class="nav">
-        <a href="#latest">Latest</a>
-        <a href="#scenarios">Scenarios</a>
-        <a href="#archive">Archive</a>
+        <a href="#latest">최신 브리프</a>
+        <a href="#scenarios">시나리오</a>
+        <a href="#archive">지난 브리프</a>
       </nav>
-      <div class="live-pill"><span></span> KST Daily</div>
+      <div class="live-pill"><span></span> 매일 KST 기준</div>
     </header>
 
     <main id="top">
       <section class="hero" id="latest">
-        <div class="eyebrow" id="report-date">Loading report…</div>
+        <div class="eyebrow" id="report-date">브리프 불러오는 중…</div>
         <div class="hero-grid">
           <div>
-            <h1 id="report-title">Market intelligence for the next session.</h1>
+            <h1 id="report-title">다음 시장을 준비하는 핵심 정보.</h1>
             <p class="hero-summary" id="report-summary"></p>
           </div>
           <div class="hero-note" id="hero-note"></div>
         </div>
       </section>
 
-      <section class="metrics-grid" id="metrics" aria-label="Key market metrics"></section>
+      <section class="metrics-grid" id="metrics" aria-label="주요 시장 지표"></section>
 
       <section class="content-grid">
         <article class="panel panel-main">
           <div class="section-heading">
             <span>01</span>
-            <div><p>Macro signal</p><h2>Rates, dollar & macro</h2></div>
+            <div><p>거시경제 신호</p><h2>금리·달러·거시경제</h2></div>
           </div>
           <div id="macro-copy" class="prose"></div>
         </article>
 
         <aside class="panel watch-panel">
           <div class="section-heading compact">
-            <span>Watch</span>
-            <div><p>Transmission path</p><h2>Priority stack</h2></div>
+            <span>주목</span>
+            <div><p>시장 전이 경로</p><h2>우선 확인 지표</h2></div>
           </div>
           <ol id="priority-list" class="priority-list"></ol>
         </aside>
@@ -61,7 +61,7 @@
       <section class="panel" id="scenarios">
         <div class="section-heading">
           <span>02</span>
-          <div><p>Conditional playbook</p><h2>Today’s tactical scenarios</h2></div>
+          <div><p>조건별 대응 전략</p><h2>오늘의 시장 시나리오</h2></div>
         </div>
         <div class="scenario-grid" id="scenario-grid"></div>
       </section>
@@ -69,7 +69,7 @@
       <section class="panel">
         <div class="section-heading">
           <span>03</span>
-          <div><p>Equities</p><h2>Stocks & sector read-through</h2></div>
+          <div><p>주식시장</p><h2>종목·업종 영향 분석</h2></div>
         </div>
         <div id="equity-copy" class="prose columns"></div>
       </section>
@@ -77,15 +77,15 @@
       <section class="archive-section" id="archive">
         <div class="section-heading">
           <span>04</span>
-          <div><p>History</p><h2>Report archive</h2></div>
+          <div><p>지난 기록</p><h2>브리프 아카이브</h2></div>
         </div>
         <div id="archive-list" class="archive-list"></div>
       </section>
     </main>
 
     <footer>
-      <p>Edwin Market Brief · Research dashboard</p>
-      <p>For information only. Not investment advice.</p>
+      <p>Edwin 시장 예측 브리프 · 리서치 대시보드</p>
+      <p>정보 제공 목적이며 투자 권유가 아닙니다.</p>
     </footer>
   </div>
   <script src="./app.js" defer></script>
